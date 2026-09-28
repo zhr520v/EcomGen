@@ -6,7 +6,7 @@ services:
       - redis_data:/data
 
   api:
-    build: .
+    image: ghcr.io/zhr520v/ecomgen:latest
     restart: unless-stopped
     depends_on:
       - redis
@@ -22,7 +22,7 @@ services:
       - ecomgen_data:/app/data
 
   worker:
-    build: .
+    image: ghcr.io/zhr520v/ecomgen:latest
     restart: unless-stopped
     command: ["node", "apps/worker/dist/worker.js"]
     depends_on:
